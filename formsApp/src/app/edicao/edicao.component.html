@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="text-center">Edição de contato</h1>
+    <form [formGroup]="contatoForm" (ngSubmit)="salvar()">
+        <div class="row mb-3">
+           <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="firstName">Primeiro Nome:</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
+                    <small *NgIf="contatoForm.get('firstName').errors?.required && contatoForm.get('firstName').errors?.touched">Primeiro nome do contato</small>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lastName"> Último Nome:</label>
+                    <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName">
+                    <small>Sobrenome do contato</small>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="text" name="email" id="email" class="form-control" formControlName="email">
+                    <small>E-mail do contato</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="button-group p-3">
+                    <button [disabled]="contatoForm.invalid" class="btn btn-outline-success m-3" type="submit">Salvar</button>
+                    <button class="btn btn-outline-danger" type="reset" routerLink="/consulta">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
